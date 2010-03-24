@@ -20,21 +20,21 @@
 *  GNU General Public License for more details.
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
-*
-* $Id$
 ***************************************************************/
 
 require_once(PATH_t3lib . 'class.t3lib_svbase.php');
-require_once(t3lib_extMgm::extPath('basecontroller', 'interfaces/class.tx_basecontroller_datafilter.php'));
+require_once(t3lib_extMgm::extPath('tesseract', 'interfaces/class.tx_tesseract_datafilter.php'));
 
 /**
  * Base datafilter service. All Data Filter services should inherit from this class
  *
- * @author	Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package	TYPO3
- * @subpackage	tx_basecontroller
+ * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package		TYPO3
+ * @subpackage	tx_tesseract
+ *
+ * $Id$
  */
-abstract class tx_basecontroller_filterbase extends t3lib_svbase implements tx_basecontroller_datafilter {
+abstract class tx_tesseract_filterbase extends t3lib_svbase implements tx_tesseract_datafilter {
 		/**
 		 * Name of the table where the details about the data query are stored
 		 *
@@ -128,7 +128,7 @@ abstract class tx_basecontroller_filterbase extends t3lib_svbase implements tx_b
 }
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_basecontroller/class.tx_basecontroller_datafilter.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_basecontroller/class.tx_basecontroller_datafilter.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_datafilter.php'])	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_datafilter.php']);
 }
 ?>

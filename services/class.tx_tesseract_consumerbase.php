@@ -23,19 +23,19 @@
 ***************************************************************/
 
 require_once(PATH_t3lib.'class.t3lib_svbase.php');
-require_once(t3lib_extMgm::extPath('basecontroller', 'interfaces/class.tx_basecontroller_dataconsumer.php'));
+require_once(t3lib_extMgm::extPath('tesseract', 'interfaces/class.tx_tesseract_dataconsumer.php'));
 
 /**
  * Base dataconsumer service. Data Consumer services should inherit from this class, *except* FE Data Consumer services,
- * which should inherit from derived class tx_basecontroller_feconsumerbase
+ * which should inherit from derived class tx_tesseract_feconsumerbase
  *
- * @author	Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package	TYPO3
- * @subpackage	tx_basecontroller
+ * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package		TYPO3
+ * @subpackage	tx_tesseract
  *
  * $Id$
  */
-abstract class tx_basecontroller_consumerbase extends t3lib_svbase implements tx_basecontroller_dataconsumer {
+abstract class tx_tesseract_consumerbase extends t3lib_svbase implements tx_tesseract_dataconsumer {
 	protected $table; // Name of the table where the details about the consumer are stored
 	protected $uid; // Primary key of the record to fetch for the details
 	protected $consumerData = array();
@@ -91,7 +91,7 @@ abstract class tx_basecontroller_consumerbase extends t3lib_svbase implements tx
 }
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_basecontroller/class.tx_basecontroller_dataconsumer.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_basecontroller/class.tx_basecontroller_dataconsumer.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_dataconsumer.php'])	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_dataconsumer.php']);
 }
 ?>

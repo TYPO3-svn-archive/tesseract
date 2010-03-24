@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2008 Francois Suter (Cobweb) <typo3@cobweb.ch>
+*  (c) 2008-2010 Francois Suter (Cobweb) <typo3@cobweb.ch>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -20,18 +20,18 @@
 *  GNU General Public License for more details.
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
-*
-* $Id$
 ***************************************************************/
 
 /**
  * Interface for objects that can behave as Data Filters
  *
- * @author	Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package	TYPO3
- * @subpackage	tx_basecontroller
+ * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package		TYPO3
+ * @subpackage	tx_tesseract
+ *
+ * $Id$
  */
-interface tx_basecontroller_datafilter {
+interface tx_tesseract_datafilter {
 
 	/**
 	 * This method is used to load the details about the Data Filter passing it whatever data it needs

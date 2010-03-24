@@ -20,18 +20,18 @@
 *  GNU General Public License for more details.
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
-*
-* $Id$
 ***************************************************************/
 
 /**
  * Interface for objects that can behave as Data Providers
  *
- * @author	Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package	TYPO3
- * @subpackage	tx_basecontroller
+ * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package		TYPO3
+ * @subpackage	tx_tesseract
+ *
+ * $Id$
  */
-interface tx_basecontroller_dataprovider {
+interface tx_tesseract_dataprovider {
 	
 	/**
 	 * This method returns the type of data structure that the Data Provider can prepare

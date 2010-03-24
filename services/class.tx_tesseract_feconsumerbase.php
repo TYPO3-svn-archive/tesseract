@@ -20,20 +20,20 @@
 *  GNU General Public License for more details.
 *
 *  This copyright notice MUST APPEAR in all copies of the script!
-*
-* $Id$
 ***************************************************************/
 
-require_once(t3lib_extMgm::extPath('basecontroller', 'services/class.tx_basecontroller_consumerbase.php'));
+require_once(t3lib_extMgm::extPath('tesseract', 'services/class.tx_tesseract_consumerbase.php'));
 
 /**
  * Base FE dataconsumer service. All FE Data Consumer services should inherit from this class
  *
- * @author	Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package	TYPO3
- * @subpackage	tx_basecontroller
+ * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package		TYPO3
+ * @subpackage	tx_tesseract
+ *
+ * $Id$
  */
-abstract class tx_basecontroller_feconsumerbase extends tx_basecontroller_consumerbase {
+abstract class tx_tesseract_feconsumerbase extends tx_tesseract_consumerbase {
 	protected $conf = array(); // Contains the consumer's TypoScript
 
 	/**
@@ -56,7 +56,7 @@ abstract class tx_basecontroller_feconsumerbase extends tx_basecontroller_consum
 }
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_basecontroller/class.tx_basecontroller_fedataconsumer.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_basecontroller/class.tx_basecontroller_fedataconsumer.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_fedataconsumer.php'])	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_fedataconsumer.php']);
 }
 ?>

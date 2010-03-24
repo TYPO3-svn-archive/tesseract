@@ -23,18 +23,18 @@
 ***************************************************************/
 
 require_once(PATH_t3lib.'class.t3lib_svbase.php');
-require_once(t3lib_extMgm::extPath('basecontroller', 'interfaces/class.tx_basecontroller_dataprovider.php'));
+require_once(t3lib_extMgm::extPath('tesseract', 'interfaces/class.tx_tesseract_dataprovider.php'));
 
 /**
  * Base dataprovider service. All Data Provider services should inherit from this class
  *
  * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
  * @package		TYPO3
- * @subpackage	tx_basecontroller
+ * @subpackage	tx_tesseract
  *
  * $Id$
  */
-abstract class tx_basecontroller_providerbase extends t3lib_svbase implements tx_basecontroller_dataprovider {
+abstract class tx_tesseract_providerbase extends t3lib_svbase implements tx_tesseract_dataprovider {
 	public $table; // Name of the table where the details about the provider are stored
 	public $uid; // Primary key of the record to fetch for the details
 	public $providerData = array();
@@ -138,7 +138,7 @@ abstract class tx_basecontroller_providerbase extends t3lib_svbase implements tx
 }
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_basecontroller/class.tx_basecontroller_dataprovider.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_basecontroller/class.tx_basecontroller_dataprovider.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_dataprovider.php'])	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_dataprovider.php']);
 }
 ?>

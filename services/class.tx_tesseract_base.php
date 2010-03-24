@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2008 Francois Suter (Cobweb) <typo3@cobweb.ch>
+*  (c) 2008-2010 Francois Suter (Cobweb) <typo3@cobweb.ch>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -29,11 +29,11 @@ require_once(PATH_t3lib . 'class.t3lib_svbase.php');
  *
  * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
  * @package		TYPO3
- * @subpackage	tx_basecontroller
+ * @subpackage	tx_tesseract
  *
  * $Id$
  */
-abstract class tx_basecontroller_base extends t3lib_svbase {
+abstract class tx_tesseract_base extends t3lib_svbase {
 	protected $uid;
 
 	/**
@@ -48,7 +48,7 @@ abstract class tx_basecontroller_base extends t3lib_svbase {
 }
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_basecontroller/class.tx_basecontroller_base.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_basecontroller/class.tx_basecontroller_base.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_base.php'])	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_base.php']);
 }
 ?>
