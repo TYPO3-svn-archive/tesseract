@@ -23,6 +23,7 @@
 ***************************************************************/
 
 require_once(PATH_t3lib . 'class.t3lib_svbase.php');
+require_once(t3lib_extMgm::extPath('tesseract', 'interfaces/class.tx_tesseract_datacontroller.php'));
 
 /**
  * Base controller service. All Controller services should inherit from this class
@@ -33,22 +34,30 @@ require_once(PATH_t3lib . 'class.t3lib_svbase.php');
  *
  * $Id$
  */
-abstract class tx_tesseract_base extends t3lib_svbase {
+abstract class tx_tesseract_controllerbase extends t3lib_svbase implements tx_tesseract_datacontroller {
+		/**
+		 * Primary key of the controller record
+		 *
+		 * @var	integer
+		 */
 	protected $uid;
 
+// Controller interface methods
+// (implement only methods that make sense here)
+
 	/**
-     * This method reads the information related to the controller from the database
+	/**
+     * This method stores the ID of the controller
      *
      * @param	integer	$id: primary key of the controller instance
      */
 	public function loadData($id) {
 		$this->uid = $id;
-		// At this point in time, loading all the provider data from the database is not necessary
     }
 }
 
 
-if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_base.php'])	{
-	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_base.php']);
+if (defined('TYPO3_MODE') && $TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_datafilter.php'])	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/tx_tesseract/services/class.tx_tesseract_datafilter.php']);
 }
 ?>
