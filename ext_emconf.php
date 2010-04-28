@@ -1,7 +1,7 @@
 <?php
 
 ########################################################################
-# Extension Manager/Repository config file for ext: "surveyclient"
+# Extension Manager/Repository config file for ext: "tesseract"
 #
 # Auto generated 22-08-2008 17:02
 #
@@ -38,6 +38,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'conflicts' => array(
 		),
 		'suggests' => array(
+			'expressions' => ''
 		),
 	),
 	'_md5_values_when_last_written' => 'a:5:{s:9:"ChangeLog";s:4:"10ee";s:10:"README.txt";s:4:"ee2d";s:12:"ext_icon.gif";s:4:"1bdc";s:19:"doc/wizard_form.dat";s:4:"4b8c";s:20:"doc/wizard_form.html";s:4:"c212";}',
