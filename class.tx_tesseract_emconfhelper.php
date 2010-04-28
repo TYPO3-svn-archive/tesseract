@@ -71,6 +71,7 @@ class tx_tesseract_emconfhelper {
 		if (class_exists('t3lib_FlashMessage')) {
 			$severity = t3lib_FlashMessage::OK;
 			$messageText = $GLOBALS['LANG']->getLL('installationCheck.extensionInstalled');
+			$title = $GLOBALS['LANG']->getLL('installationCheck.extension') . ': ' . $extension;
 			if (!$status) {
 				$severity = t3lib_FlashMessage::WARNING;
 				$messageText = $GLOBALS['LANG']->getLL('installationCheck.extensionNotInstalled');
@@ -79,7 +80,7 @@ class tx_tesseract_emconfhelper {
 			$flashMessage = t3lib_div::makeInstance(
 				't3lib_FlashMessage',
 				$messageText,
-				'',
+				$title,
 				$severity
 			);
 			$message .= $flashMessage->render();
