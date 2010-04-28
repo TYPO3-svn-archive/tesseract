@@ -29,7 +29,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'author_company' => '',
-	'version' => '0.2.0',
+	'version' => '0.3.0',
 	'constraints' => array(
 		'depends' => array(
 			'php' => '5.0.0-0.0.0',
@@ -39,8 +39,7 @@ $EM_CONF[$_EXTKEY] = array(
 		),
 		'suggests' => array(
 			'datafilter' => '',
-			'dataquery' => '0.3.0-0.0.0',
-			'datadisplay' => '0.3.0-0.0.0',
+			'dataquery' => '0.16.0-0.0.0',
 			'displaycontroller' => '',
 		),
 	),
