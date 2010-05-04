@@ -12,7 +12,7 @@
 
 $EM_CONF[$_EXTKEY] = array(
 	'title' => 'Project Tesseract',
-	'description' => 'This projects covers a series of extensions designed to facilitate the extraction of data and their display, using controllers and standard data formats.',
+	'description' => 'This projects covers a suite of extensions designed to facilitate the extraction of data and their display, using controllers and standard data formats.',
 	'category' => 'doc',
 	'author' => 'Francois Suter (Cobweb)',
 	'author_email' => 'typo3@cobweb.ch',
@@ -29,11 +29,12 @@ $EM_CONF[$_EXTKEY] = array(
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'author_company' => '',
-	'version' => '0.4.0',
+	'version' => '0.5.0',
 	'constraints' => array(
 		'depends' => array(
 			'php' => '5.0.0-0.0.0',
 			'typo3' => '4.2.0-0.0.0',
+			'expressions' => ''
 		),
 		'conflicts' => array(
 		),
