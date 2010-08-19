@@ -23,8 +23,8 @@
 ***************************************************************/
 
 /**
- * Interface for Data Controllers when setting up relationships between
- * Tesseract components
+ * Interface for Data Controllers when interacting with other components
+ * during output production
  *
  * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
  * @package		TYPO3
@@ -32,28 +32,16 @@
  *
  * $Id$
  */
-interface tx_tesseract_datacontroller {
+interface tx_tesseract_datacontroller_output {
 
 	/**
-	 * This method is used to load the details about the controller
-	 * This is mostly meant to match the other interfaces. In effect,
-	 * it is really just about storing the controller's id
+	 * This method should return a string that somehow identifies
+	 * the controller. When the controller is a FE plugin - for example -
+	 * it should return the prefix that can be used to name GET/POST
+	 * variables in the form of "tx_mycontroller[foo]".
 	 *
-	 * @param	integer	$uid: ID of the controller
-	 * @return	void
+	 * @return	string	An ID string that identifies the controller
 	 */
-	public function loadData($uid);
-	
-	/**
-	 * This method should return the Data Provider that the controller
-	 * should pass to the Data Consumer, according to the relations defined
-	 * by the controller
-	 * NOTE: this is essentially meant to be used in the BE, when the
-	 * Data Consumer must be "put in touch" with its Data Provider in order to
-	 * know what data will be available, for mapping purposes
-	 *
-	 * @return	tx_tesseract_dataprovider	An oject implementing the Data Provider interface
-	 */
-	public function getRelatedProvider();
+	public function getPrefixId();
 }
 ?>
