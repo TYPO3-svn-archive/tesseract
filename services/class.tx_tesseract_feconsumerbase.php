@@ -22,7 +22,6 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-require_once(t3lib_extMgm::extPath('tesseract', 'services/class.tx_tesseract_consumerbase.php'));
 
 /**
  * Base FE dataconsumer service. All FE Data Consumer services should inherit from this class
