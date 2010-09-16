@@ -6,11 +6,11 @@
  */
 $extensionPath = t3lib_extMgm::extPath('tesseract');
 return array(
-	'tx_tesseract_dataconsumer'				=> $extensionPath . 'interfaces/class.tx_tesseract_dataconsumer.php',
-	'tx_tesseract_datacontroller'			=> $extensionPath . 'interfaces/class.tx_tesseract_datacontroller.php',
-	'tx_tesseract_datacontroller_output'	=> $extensionPath . 'interfaces/class.tx_tesseract_datacontroller_output.php',
-	'tx_tesseract_datafilter'				=> $extensionPath . 'interfaces/class.tx_tesseract_datafilter.php',
-	'tx_tesseract_dataprovider'				=> $extensionPath . 'interfaces/class.tx_tesseract_dataprovider.php',
+	'tx_tesseract_dataconsumer'				=> $extensionPath . 'interfaces/interface.tx_tesseract_dataconsumer.php',
+	'tx_tesseract_datacontroller'			=> $extensionPath . 'interfaces/interface.tx_tesseract_datacontroller.php',
+	'tx_tesseract_datacontroller_output'	=> $extensionPath . 'interfaces/interface.tx_tesseract_datacontroller_output.php',
+	'tx_tesseract_datafilter'				=> $extensionPath . 'interfaces/interface.tx_tesseract_datafilter.php',
+	'tx_tesseract_dataprovider'				=> $extensionPath . 'interfaces/interface.tx_tesseract_dataprovider.php',
 	'tx_tesseract_consumerbase'				=> $extensionPath . 'services/class.tx_tesseract_consumerbase.php',
 	'tx_tesseract_controllerbase'			=> $extensionPath . 'services/class.tx_tesseract_controllerbase.php',
 	'tx_tesseract_feconsumerbase'			=> $extensionPath . 'services/class.tx_tesseract_feconsumerbase.php',
