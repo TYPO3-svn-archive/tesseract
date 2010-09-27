@@ -32,6 +32,6 @@
  *
  * $Id$
  */
-class tx_tesseract_exception extends Exception{
+class tx_tesseract_exception extends Exception {
 }
 ?>
