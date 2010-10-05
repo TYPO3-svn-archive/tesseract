@@ -50,6 +50,15 @@ interface tx_tesseract_datafilter {
 	public function getData();
 
 	/**
+	 * This method makes it possible to force the data of the filter
+	 * Normally it should be defined via loadData()
+	 *
+	 * @param	array	$filterData: complete filter information
+	 * @return	void
+	 */
+	public function setData(array $filterData);
+
+	/**
 	 * This method processes the Data Filter's configuration and returns the filter structure
 	 *
 	 * @return	array	standardised filter structure

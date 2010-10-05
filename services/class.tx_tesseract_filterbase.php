@@ -71,15 +71,14 @@ abstract class tx_tesseract_filterbase extends t3lib_svbase implements tx_tesser
 	public function loadData($data) {
 		$this->table = $data['table'];
 		$this->uid = $data['uid'];
-		$whereClause = "uid = '".$this->uid."'";
+		$whereClause = "uid = '" . $this->uid . "'";
 		if (isset($GLOBALS['TSFE'])) {
 			$whereClause .= $GLOBALS['TSFE']->sys_page->enableFields($this->table, $GLOBALS['TSFE']->showHiddenRecords);
 		}
 		$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery('*', $this->table, $whereClause);
 		if (!$res || $GLOBALS['TYPO3_DB']->sql_num_rows($res) == 0) {
 			throw new Exception('Could not load filter details');
-		}
-		else {
+		} else {
 			$this->filterData = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
 		}
 	}
@@ -91,6 +90,17 @@ abstract class tx_tesseract_filterbase extends t3lib_svbase implements tx_tesser
 	 */
 	public function getData() {
 		return $this->filterData;
+	}
+
+	/**
+	 * This method makes it possible to force the data of the filter
+	 * Normally it should be defined via loadData()
+	 *
+	 * @param	array	$filterData: complete filter information
+	 * @return	void
+	 */
+	public function setData(array $filterData) {
+		$this->filterData = $filterData;
 	}
 
 	/**
@@ -117,7 +127,7 @@ abstract class tx_tesseract_filterbase extends t3lib_svbase implements tx_tesser
 	/**
 	 * This method performs necessary initialisations when an instance of this service
 	 * is called up several times
-	 * 
+	 *
 	 * @return	void
 	 */
 	public function reset() {
