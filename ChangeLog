@@ -1,4 +1,4 @@
-2010-09-27 Francois Suter (Cobweb)  <typo3@cobweb.ch>
+2010-10-05 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
 	* Added data setter method to Data Filter interface, resolves #10059
 
