@@ -51,7 +51,7 @@ class tx_tesseract_emconfhelper {
 	 * @return	string				The HTML selector
 	 */
 	public function installationCheck(array $params, t3lib_tsStyleConfig $pObj) {
-		$checkText = '';
+		$checkText = '<p style="margin-bottom: 10px;"><strong>' . $GLOBALS['LANG']->getLL('installationCheck.warning') . '</strong></p>';
 		foreach (self::$extensionsList as $anExtension) {
 			$checkText .= $this->wrapMessage($anExtension, t3lib_extMgm::isLoaded($anExtension));
 		}
