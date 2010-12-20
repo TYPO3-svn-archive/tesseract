@@ -1,6 +1,7 @@
 2010-12-20 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
 	* Data filter information should contain original filter information, resolves #11599
+	* Added warning about extensions installation order, resolves #11549
 
 2010-11-15 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
