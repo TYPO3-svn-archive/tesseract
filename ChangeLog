@@ -1,3 +1,8 @@
+2011-03-22 Francois Suter (Cobweb)  <typo3@cobweb.ch>
+
+	* Updated documentation for inclusion of filter information in data structure, resolves #13972
+	* Updated documentation to describe newer Tesseract components
+
 2010-12-28 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
 	* Released to TER as version 1.0.1
