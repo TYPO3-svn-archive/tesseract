@@ -30,11 +30,11 @@ Data Filters	10
 Utilities	10
 Installation	11
 Compatibility issues	11
-Developer's Guide	12
-API	12
-Known problems	14
-To-Do List	15
-Changelog	16
+Configuration	12
+Developer's Guide	13
+API	13
+Known problems	15
+To-Do List	16
 
 Introduction
 Overview
@@ -283,6 +283,15 @@ The extension configuration screen provides a quick way to check if the main ext
 A typical screen may look like the one below. Note that extensions must be installed in the exact order in which they are presented in this screen!
 Compatibility issues
 In general the Tesseract Project requires TYPO3 4.3+ to run. It will not run with a lower version. It also requires PHP 5.2 or above.
+Configuration
+As of Tesseract 1.1.0, it is possible to use TypoScript to configure default values for the Data Filters, Data Providers and Data Consumers. The general syntax is the following:
+config.tx_tesseract.[table name].default.[field name] = foo
+
+Example:
+Let's say you want to have a default value of 20 for the "Max items per view" in the "datafilter" extension. The syntax would be:
+config.tx_tesseract.tx_datafilter_filters.default.limit_start = 20
+
+
 Developer's Guide
 API
 Each object type is expected to implement a specific interface so as to be able to behave properly. These interfaces are provided by the Tesseract extension.
@@ -378,13 +387,4 @@ None to date. If you have any issues, please refer to the Tesseract Project web 
 To-Do List
 The roadmap for the evolution of this extension can be found on Forge: http://forge.typo3.org/projects/roadmap/extension-tesseract
 For feature requests, please open a report on Forge issue tracker: http://forge.typo3.org/projects/extension-tesseract/issues
-
-Changelog
-Version
-Changes:
-1.0.1
-Added data setter method to Data Filter API
-Added original filter configuration to Data Filter structure
-1.0.0
-Initial public release
 

@@ -65,6 +65,28 @@ abstract class tx_tesseract_providerbase extends t3lib_svbase implements tx_tess
 		} else {
 			$this->providerData = $GLOBALS['TYPO3_DB']->sql_fetch_assoc($res);
 		}
+
+		$this->loadTyposcriptConfiguration($data['table']);
+	}
+
+	/**
+	 * This method replaces unset data with default values defined with TypoScript
+	 *
+	 * @param	string	$tableName: Name of the table containing the data
+	 * @return void
+	 */
+	protected function loadTyposcriptConfiguration($tableName) {
+		if (isset($GLOBALS['TSFE'])) {
+			$typoscriptConfiguration = $GLOBALS['TSFE']->config['config']['tx_tesseract.'][$tableName . '.']['default.'];
+				// If there's some TypoScript configuration, use its values, but only if there's not already a value from the DB
+			if (is_array($typoscriptConfiguration)) {
+				foreach ($typoscriptConfiguration as $key => $value) {
+					if (!isset($this->filterData[$key]) || $this->filterData[$key] == '') {
+						$this->filterData[$key] = $typoscriptConfiguration[$key];
+					}
+				}
+			}
+		}
 	}
 
 	/**
@@ -118,9 +140,9 @@ abstract class tx_tesseract_providerbase extends t3lib_svbase implements tx_tess
 	/**
 	 * This method resets values for a number of properties
 	 * This is necessary because services are managed as singletons
-	 * 
+	 *
 	 * NOTE: If you make your own implementation of reset in your DataProvider class, don't forget to call parent::reset()
-	 * 
+	 *
 	 * @return	void
 	 */
 	public function reset() {
