@@ -53,9 +53,8 @@ abstract class tx_tesseract_providerbase extends t3lib_svbase implements tx_tess
 	 */
 	public function loadData($data) {
 		$this->table = $data['table'];
-		$this->uid = $data['uid'];
-		$tableTCA = $GLOBALS['TCA'][$this->table];
-		$whereClause = "uid = '".$this->uid."'";
+		$this->uid = intval($data['uid']);
+		$whereClause = "uid = '" . $this->uid . "'";
 		if (isset($GLOBALS['TSFE'])) {
 			$whereClause .= $GLOBALS['TSFE']->sys_page->enableFields($this->table, $GLOBALS['TSFE']->showHiddenRecords);
 		}

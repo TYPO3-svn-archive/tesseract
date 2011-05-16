@@ -49,9 +49,8 @@ abstract class tx_tesseract_consumerbase extends t3lib_svbase implements tx_tess
 	 */
 	public function loadData($data) {
 		$this->table = $data['table'];
-		$this->uid = $data['uid'];
+		$this->uid = intval($data['uid']);
 			// Get record where the details of the data display are stored
-		$tableTCA = $GLOBALS['TCA'][$this->table];
 		$whereClause = "uid = '" . $this->uid . "'";
 		if (isset($GLOBALS['TSFE'])) {
 			$whereClause .= $GLOBALS['TSFE']->sys_page->enableFields($this->table, $GLOBALS['TSFE']->showHiddenRecords);
