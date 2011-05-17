@@ -1,3 +1,7 @@
+2011-05-17 Francois Suter (Cobweb)  <typo3@cobweb.ch>
+
+	* Enabled use of TypoScript to define default values for components properties, resolves #13660
+
 2011-03-22 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
 	* Updated documentation for inclusion of filter information in data structure, resolves #13972
