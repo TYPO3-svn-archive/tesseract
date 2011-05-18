@@ -77,8 +77,8 @@ abstract class tx_tesseract_consumerbase extends t3lib_svbase implements tx_tess
 				// If there's some TypoScript configuration, use its values, but only if there's not already a value from the DB
 			if (is_array($typoscriptConfiguration)) {
 				foreach ($typoscriptConfiguration as $key => $value) {
-					if (!isset($this->filterData[$key]) || $this->filterData[$key] == '') {
-						$this->filterData[$key] = $typoscriptConfiguration[$key];
+					if (!isset($this->consumerData[$key]) || $this->consumerData[$key] == '') {
+						$this->consumerData[$key] = $typoscriptConfiguration[$key];
 					}
 				}
 			}
