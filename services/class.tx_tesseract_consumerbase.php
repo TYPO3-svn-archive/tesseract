@@ -38,7 +38,12 @@ abstract class tx_tesseract_consumerbase extends t3lib_svbase implements tx_tess
 	protected $uid; // Primary key of the record to fetch for the details
 	protected $consumerData = array();
 	protected $filter; // Data Filter structure
-	protected $pObj; // Reference to the consumer's parent object, normally some kind of controller
+	/**
+	 * Reference to the consumer's parent object, normally some kind of controller
+	 *
+	 * @var tx_tesseract_datacontroller_output
+	 */
+	protected $pObj;
 
 	/**
 	 * This method is used to load the details about the Data Consumer passing it whatever data it needs

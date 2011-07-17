@@ -48,6 +48,8 @@ abstract class tx_tesseract_feconsumerbase extends tx_tesseract_consumerbase {
 	 * This method returns the TypoScript key of the extension. This may be the extension key.
 	 * NOTE: if you use this method as is, don't forget to define the member variable $tsKey.
 	 * NOTE: don't append a . (dot) to you ts key, it is done automatically by this method.
+	 *
+	 * @return string TypoScript key of the extension
 	 */
 	public function getTypoScriptKey() {
 		return $this->tsKey.'.';
