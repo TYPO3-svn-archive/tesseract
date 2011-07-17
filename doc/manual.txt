@@ -185,6 +185,8 @@ Value to use for the test
 
 main
 True if the condition should be applied in the main condition, false otherwise
+void
+True if the condition should be applied at all, false otherwise (see the "Data Filter" manual for a discussion on the usefulness of this kind of conditions)
 string
 Should contain the original filter information, untransformed (this can be used for debugging)
 
