@@ -126,6 +126,16 @@ abstract class tx_tesseract_filterbase extends t3lib_svbase implements tx_tesser
 	}
 
 	/**
+	 * This method returns true or false depending on whether the filter can be considered empty or not
+	 *
+	 * @return bool
+	 */
+	public function isFilterEmpty() {
+			// Return true if there are no filters
+		return count($this->filter['filters']) == 0;
+	}
+
+	/**
 	 * This method returns the filter information itself
 	 *
 	 * @return	array	Internal filter array

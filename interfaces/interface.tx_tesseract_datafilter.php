@@ -66,6 +66,13 @@ interface tx_tesseract_datafilter {
 	public function getFilterStructure();
 
 	/**
+	 * This method returns true or false depending on whether the filter can be considered empty or not
+	 * @abstract
+	 * @return boolean
+	 */
+	public function isFilterEmpty();
+
+	/**
 	 * This method returns the filter information itself
 	 *
 	 * @return	array	Internal filter array
