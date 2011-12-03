@@ -59,11 +59,11 @@ class tx_tesseract_utilities {
 	/**
 	 * This method can be used to calculate a hash based on the values of a given filter
 	 *
-	 * @param	array		$filter: standard filter structure
-	 * @param	boolean		$useLimit: by default, the "limit" part of the filter is excluded from the hash. Use this flag to include it
+	 * @param array $filter Standard filter structure
+	 * @param boolean $useLimit By default, the "limit" part of the filter is excluded from the hash. Use this flag to include it
+     * @return string The calculated hash
 	 */
-	public static function calculateFilterCacheHash($filter, $useLimit = false) {
-		$string = '';
+	public static function calculateFilterCacheHash($filter, $useLimit = FALSE) {
 		if (is_array($filter)) {
 				// If limit is not used, exclude it from the hash calculation
 			if (!$useLimit) {
