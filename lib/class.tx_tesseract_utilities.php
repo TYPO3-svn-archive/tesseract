@@ -61,7 +61,7 @@ class tx_tesseract_utilities {
 	 *
 	 * @param array $filter Standard filter structure
 	 * @param boolean $useLimit By default, the "limit" part of the filter is excluded from the hash. Use this flag to include it
-     * @return string The calculated hash
+	 * @return string The calculated hash
 	 */
 	public static function calculateFilterCacheHash($filter, $useLimit = FALSE) {
 		if (is_array($filter)) {
@@ -96,6 +96,44 @@ class tx_tesseract_utilities {
 			}
 		}
 		return $lines;
+	}
+
+	/**
+	 * Returns a language object by trying to find an existing one or instantiating a new one properly
+	 * depending on context
+	 *
+	 * @static
+	 * @return language The language object
+	 */
+	public static function getLanguageObject() {
+			// Use the global language object, if it exists
+		if (isset($GLOBALS['lang'])) {
+			$lang = $GLOBALS['lang'];
+
+			// If no language object is available, create one
+		} else {
+			require_once(PATH_typo3 . 'sysext/lang/lang.php');
+				/** @var $lang language */
+			$lang = t3lib_div::makeInstance('language');
+			$languageCode = '';
+				// Find out which language to use
+			if (empty($language)) {
+					// If in the BE, it's taken from the user's preferences
+				if (TYPO3_MODE == 'BE') {
+					$languageCode = $GLOBALS['BE_USER']->uc['lang'];
+
+					// In the FE, we use the config.language TS property
+				} else {
+					if (isset($GLOBALS['TSFE']->tmpl->setup['config.']['language'])) {
+						$languageCode = $GLOBALS['TSFE']->tmpl->setup['config.']['language'];
+					}
+				}
+			} else {
+				$languageCode = $language;
+			}
+			$lang->init($languageCode);
+		}
+		return $lang;
 	}
 }
 
