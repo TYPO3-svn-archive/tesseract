@@ -103,9 +103,10 @@ class tx_tesseract_utilities {
 	 * depending on context
 	 *
 	 * @static
+	 * @param string $language A 2-letter language code
 	 * @return language The language object
 	 */
-	public static function getLanguageObject() {
+	public static function getLanguageObject($language = '') {
 			// Use the global language object, if it exists
 		if (isset($GLOBALS['lang'])) {
 			$lang = $GLOBALS['lang'];
