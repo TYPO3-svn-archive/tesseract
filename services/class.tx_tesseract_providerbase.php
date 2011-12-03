@@ -94,7 +94,8 @@ abstract class tx_tesseract_providerbase extends t3lib_svbase implements tx_tess
 	 * If appropriate it should also set some flag, so that getDataStructure() knows that it must return this empty structure
 	 * rather than calculate the full structure
 	 *
-	 * @return	void
+     * @param string $tablename Name of the main table (a structure should always have a table defined)
+	 * @return void
 	 */
 	public function initEmptyDataStructure($tablename) {
 		$this->hasEmptyOutputStructure = TRUE;
@@ -108,8 +109,22 @@ abstract class tx_tesseract_providerbase extends t3lib_svbase implements tx_tess
 	 * @return	void
 	 */
 	public function setDataFilter($filter) {
-		if (is_array($filter)) $this->filter = $filter;
+		if (is_array($filter)) {
+            $this->filter = $filter;
+        }
 	}
+
+    /**
+     * This method is used to pass a data structure to the Data Provider
+     *
+     * @param	array		$structure: standardised data structure
+     * @return	void
+     */
+    public function setDataStructure($structure) {
+        if (is_array($structure)) {
+            $this->structure = $structure;
+        }
+    }
 
 	/**
 	 * This method can be used to get the hasEmptyOutputStructure flag
