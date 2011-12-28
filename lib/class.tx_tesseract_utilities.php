@@ -108,8 +108,8 @@ class tx_tesseract_utilities {
 	 */
 	public static function getLanguageObject($language = '') {
 			// Use the global language object, if it exists
-		if (isset($GLOBALS['lang'])) {
-			$lang = $GLOBALS['lang'];
+		if (isset($GLOBALS['LANG'])) {
+			$lang = $GLOBALS['LANG'];
 
 			// If no language object is available, create one
 		} else {
