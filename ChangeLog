@@ -1,3 +1,7 @@
+2012-01-08 Francois Suter (Cobweb)  <typo3@cobweb.ch>
+
+	* Implemented improvements to the API, resolves #33042
+
 2011-12-03 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
     * Added utility method for getting a language object, resolves #32281

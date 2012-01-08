@@ -3,7 +3,7 @@ EXT: Project Tesseract
 Extension Key: tesseract
 Language: en
 Keywords: forAdmins, forIntermediates
-Copyright 2008-2011, The Tesseract Team, <typo3@cobweb.ch>
+Copyright 2008-2012, The Tesseract Team, <typo3@cobweb.ch>
 
 This document is published under the Open Content License
 available from http://www.opencontent.org/opl.shtml
@@ -30,6 +30,7 @@ Data Filters	10
 Utilities	10
 Installation	11
 Compatibility issues	11
+Upgrading to version 1.3.0	11
 Configuration	12
 Developer's Guide	13
 API	13
@@ -285,6 +286,10 @@ The extension configuration screen provides a quick way to check if the main ext
 A typical screen may look like the one below. Note that extensions must be installed in the exact order in which they are presented in this screen!
 Compatibility issues
 In general the Tesseract Project requires TYPO3 4.3+ to run. It will not run with a lower version. It also requires PHP 5.2 or above.
+Upgrading to version 1.3.0
+Version 1.3.0 of extension "tesseract" came with some API changes. A new base class was introduced for all components: tx_tesseract_component. This class is already extended by all the existing consumer, filter and provider classes, so this change should be transparent for any Tesseract component, unless it did not extend the existing base classes (which is not recommended).
+However these changes have an impact on controllers. If you have designed a custom Tesseract controller, you should check the changes to the "displaycontroller" or "displaycontroller_advanced" extensions to check what should be changed in your own controllers.
+Note: at the time of this writing, there are no custom controllers out there known to the authors, which is why we allowed ourselves such an API change.
 Configuration
 As of Tesseract 1.1.0, it is possible to use TypoScript to configure default values for the Data Filters, Data Providers and Data Consumers. The general syntax is the following:
 config.tx_tesseract.[table name].default.[field name] = foo
@@ -297,6 +302,16 @@ config.tx_tesseract.tx_datafilter_filters.default.limit_start = 20
 Developer's Guide
 API
 Each object type is expected to implement a specific interface so as to be able to behave properly. These interfaces are provided by the Tesseract extension.
+Base component
+All providers, filters and consumers are supposed to inherit from a base Tesseract component class (tx_tesseract_component). This class defines the following methods:
+Name
+Description
+loadData()
+This method is used to load the necessary information about the component. It takes a type and a primary key and retrieves the information from the database. It is the proper way of retrieving such data. The setData() method (see below) is used in special cases.
+setData()
+This method can be used to (forcefully) set the information related to the Tesseract component. This is usually achieved via loadData(), but is sometimes useful. In particular it is used in the context of unit testing.
+getData()
+This method returns the information related to the Tesseract component.
 Data Provider
 The DataProvider interface defines the methods that a data source must implement in order to be recognized as a Data Provider. These methods are:
 Name
@@ -309,8 +324,6 @@ getAcceptedDataStructures()
 This method returns a list (array) of all SDS types that the Data Provider can accept as an input.
 acceptsDataStructure()
 This method takes a SDS type as an input and returns true or false depending on whether the Data Provider can handle it as an input or not.
-loadData()
-This method takes a type of Data Provider (normally corresponding to the name of a DB table) and a primary key and retrieves the info related to the Data Provider from the DB. It then returns the Data Provider object. Finding the right Data Provider is achieved using services.
 initEmptyDataStructure()
 This method is used to prepare an empty SDS, for example setting an empty “records” array and set the count to 0.
 getDataStructure()
@@ -333,8 +346,6 @@ getAcceptedDataStructures()
 This method returns a list (array) of all SDS types that the Data Consumer can accept as an input.
 acceptsDataStructure()
 This method takes a SDS type as an input and returns true or false depending on whether the Data Consumer can handle it as an input or not.
-loadData()
-This method takes a type of Data Consumer (normally corresponding to the name of a DB table) and a primary key and retrieves the info related to the Data Consumer from the DB. It then returns the Data Consumer object. Finding the right Data Consumer is achieved using services.
 setDataStructure()
 This method is used to pass to the Data Consumer an input SDS
 setDataFilter()
@@ -344,17 +355,10 @@ This method tells the Data Consumer to start rendering the SDS into its final ou
 getResult()
 This method gets the output produced by the Data Consumer. This means it's normally called after startProcess().
 It can also be called directly (i.e. not after startProcess()) when the Data Consumer should not be passed any structure. In this case, it is expected to render some kind of error output. This situation is likely to happen when a filter didn't return any filtering values. In this you may either want to get everything from the Data Provider, or nothing. In the latter case it's not necessary to call the Data Provider at all and the Data Consumer may be called without SDS.
-
 Data Filters
 The same goes again for the Data Filters, with the DataFilter interface:
 Name
 Description
-loadData()
-This method takes a type of Data Filter (normally corresponding to the name of a DB table) and a primary key and retrieves the info related to the Data Filter from the DB. It then returns the Data Filter object. Finding the right Data Filter is achieved using services.
-getData()
-This method is used to retrieve the filter's data.
-setData()
-This method can be used to pass the Data Filter its complete data, instead of retrieving it from the database when using loadData().
 getFilterStructure()
 This method processes the Data Filter's configuration and returns the filter structure.
 isFilterEmpty()

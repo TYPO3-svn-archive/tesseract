@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2008-2010 Francois Suter (Cobweb) <typo3@cobweb.ch>
+*  (c) 2008-2012 Francois Suter (Cobweb) <typo3@cobweb.ch>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -32,7 +32,7 @@
  *
  * $Id$
  */
-abstract class tx_tesseract_filterbase extends t3lib_svbase implements tx_tesseract_datafilter {
+abstract class tx_tesseract_filterbase extends tx_tesseract_component implements tx_tesseract_datafilter {
 		/**
 		 * Name of the table where the details about the data query are stored
 		 *
@@ -118,11 +118,11 @@ abstract class tx_tesseract_filterbase extends t3lib_svbase implements tx_tesser
 	 * This method makes it possible to force the data of the filter
 	 * Normally it should be defined via loadData()
 	 *
-	 * @param	array	$filterData: complete filter information
-	 * @return	void
+	 * @param array $data Complete filter information
+	 * @return void
 	 */
-	public function setData(array $filterData) {
-		$this->filterData = $filterData;
+	public function setData(array $data) {
+		$this->filterData = $data;
 	}
 
 	/**

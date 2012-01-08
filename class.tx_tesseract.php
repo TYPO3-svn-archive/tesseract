@@ -25,12 +25,12 @@
 
 /**
  * Base class for the Tesseract Project
- * Contains only constants for now, but could contain some fundamental methods
- * at some later point
  *
- * @author		Francois Suter (Cobweb) <typo3@cobweb.ch>
- * @package		TYPO3
- * @subpackage	tx_tesseract
+ * Contains a couple of constants and a factory class
+ *
+ * @author Francois Suter (Cobweb) <typo3@cobweb.ch>
+ * @package TYPO3
+ * @subpackage tx_tesseract
  *
  * $Id$
  */
@@ -39,6 +39,27 @@ class tx_tesseract {
 		// Define class constants for structure types
 	const RECORDSET_STRUCTURE_TYPE = 'recordset';
 	const IDLIST_STRUCTURE_TYPE = 'idlist';
+
+	/**
+	 * Returns the right Tesseract component given the input values
+	 * and performs additional, common initializations on the component
+	 *
+	 * @param string $type Type of component
+	 * @param string $subtype Specific subtype of component
+	 * @param array $componentData Data for the component
+	 * @param tx_tesseract_datacontroller_output $controller Reference to the calling controller
+	 * @return tx_tesseract_component
+	 */
+	public static function getComponent($type, $subtype, $componentData, $controller) {
+			// Get the correct service instance
+			/** @var $component tx_tesseract_component */
+		$component = t3lib_div::makeInstanceService($type, $subtype);
+			// Load the component's data
+		$component->loadData($componentData);
+			// Set the reference to the controller
+		$component->setController($controller);
+		return $component;
+	}
 }
 
 

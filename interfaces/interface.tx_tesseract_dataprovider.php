@@ -32,7 +32,7 @@
  * $Id$
  */
 interface tx_tesseract_dataprovider {
-	
+
 	/**
 	 * This method returns the type of data structure that the Data Provider can prepare
 	 *
@@ -64,20 +64,12 @@ interface tx_tesseract_dataprovider {
 	public function acceptsDataStructure($type);
 
 	/**
-	 * This method is used to load the details about the Data Provider passing it whatever data it needs
-	 * This will generally be a table name ($data['table']) and a primary key value ($data['uid'])
-	 *
-	 * @param	array	$data: Data for the Data Provider
-	 * @return	void
-	 */
-	public function loadData($data);
-
-	/**
 	 * This method prepares an empty data structure
 	 * i.e. with most properties undefined, an empty array for "records" and a "count" of 0
 	 * If appropriate it should also set some flag, so that getDataStructure() knows that it must return this empty structure
 	 * rather than calculate the full structure
 	 *
+	 * @param string $tablename Name of the table to use in the empty structure
 	 * @return	void
 	 */
 	public function initEmptyDataStructure($tablename);

@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2008-2010 Francois Suter (Cobweb) <typo3@cobweb.ch>
+*  (c) 2008-2012 Francois Suter (Cobweb) <typo3@cobweb.ch>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -32,7 +32,7 @@
  *
  * $Id$
  */
-abstract class tx_tesseract_providerbase extends t3lib_svbase implements tx_tesseract_dataprovider {
+abstract class tx_tesseract_providerbase extends tx_tesseract_component implements tx_tesseract_dataprovider {
 	public $table; // Name of the table where the details about the provider are stored
 	public $uid; // Primary key of the record to fetch for the details
 	public $providerData = array();
@@ -66,6 +66,27 @@ abstract class tx_tesseract_providerbase extends t3lib_svbase implements tx_tess
 		}
 
 		$this->loadTyposcriptConfiguration($data['table']);
+	}
+
+	/**
+	 * Returns the data provider's details
+	 *
+	 * @return array The data provider's details
+	 */
+	public function getData() {
+		return $this->providerData;
+	}
+
+	/**
+	 * Sets the full data provider's details
+	 *
+	 * Should be used only when needed. Normal way is to use loadData()
+	 *
+	 * @param array $data Complete provider details
+	 * @return void
+	 */
+	public function setData(array $data) {
+		$this->providerData = $data;
 	}
 
 	/**

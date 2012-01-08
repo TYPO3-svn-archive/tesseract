@@ -34,31 +34,6 @@
 interface tx_tesseract_datafilter {
 
 	/**
-	 * This method is used to load the details about the Data Filter passing it whatever data it needs
-	 * This will generally be a table name ($data['table']) and a primary key value ($data['uid'])
-	 *
-	 * @param	array	$data: Data for the Data Filter
-	 * @return	void
-	 */
-	public function loadData($data);
-
-	/**
-	 * This method is used to retrieve the filter's data
-	 *
-	 * @return	array	The filter's data, as stored in the corresponding database record
-	 */
-	public function getData();
-
-	/**
-	 * This method makes it possible to force the data of the filter
-	 * Normally it should be defined via loadData()
-	 *
-	 * @param	array	$filterData: complete filter information
-	 * @return	void
-	 */
-	public function setData(array $filterData);
-
-	/**
 	 * This method processes the Data Filter's configuration and returns the filter structure
 	 *
 	 * @return	array	standardised filter structure

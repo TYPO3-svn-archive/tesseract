@@ -49,15 +49,6 @@ interface tx_tesseract_dataconsumer {
 	public function acceptsDataStructure($type);
 
 	/**
-	 * This method is used to load the details about the Data Consumer passing it whatever data it needs
-	 * This will generally be a table name and a primary key value
-	 *
-	 * @param	array	$data: Data for the Data Consumer
-	 * @return	void
-	 */
-	public function loadData($data);
-
-	/**
 	 * This method is used to pass a data structure to the Data Consumer
 	 *
 	 * @param 	array	$structure: standardised data structure

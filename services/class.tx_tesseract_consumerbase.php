@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2008 Francois Suter (Cobweb) <typo3@cobweb.ch>
+*  (c) 2008-2012 Francois Suter (Cobweb) <typo3@cobweb.ch>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -33,7 +33,7 @@
  *
  * $Id$
  */
-abstract class tx_tesseract_consumerbase extends t3lib_svbase implements tx_tesseract_dataconsumer {
+abstract class tx_tesseract_consumerbase extends tx_tesseract_component implements tx_tesseract_dataconsumer {
 	protected $table; // Name of the table where the details about the consumer are stored
 	protected $uid; // Primary key of the record to fetch for the details
 	protected $consumerData = array();
@@ -42,6 +42,7 @@ abstract class tx_tesseract_consumerbase extends t3lib_svbase implements tx_tess
 	 * Reference to the consumer's parent object, normally some kind of controller
 	 *
 	 * @var tx_tesseract_datacontroller_output
+	 * @deprecated since tesseract 1.3.0, may be removed in the future - Use $this->controller instead
 	 */
 	protected $pObj;
 
@@ -68,6 +69,27 @@ abstract class tx_tesseract_consumerbase extends t3lib_svbase implements tx_tess
 		}
 
 		$this->loadTyposcriptConfiguration($data['table']);
+	}
+
+	/**
+	 * Returns the data consumer's details
+	 *
+	 * @return array The data consumer's details
+	 */
+	public function getData() {
+		return $this->consumerData;
+	}
+
+	/**
+	 * Sets the full data consumer's details
+	 *
+	 * Should be used only when needed. Normal way is to use loadData()
+	 *
+	 * @param array $data Complete consumer details
+	 * @return void
+	 */
+	public function setData(array $data) {
+		$this->consumerData = $data;
 	}
 
 	/**
@@ -105,9 +127,11 @@ abstract class tx_tesseract_consumerbase extends t3lib_svbase implements tx_tess
 	/**
 	 * This method is used to set a reference to the parent object, normally an instance of some controller
 	 *
-	 * @param	object	$pObj: reference to a parent object
+	 * @param object $pObj Reference to a parent object
+	 * @deprecated since tesseract 1.3.0, may be removed in the future - Use setController() instead
 	 */
 	public function setParentReference(&$pObj) {
+		t3lib_div::logDeprecatedFunction();
 		if (is_object($pObj)) {
 			$this->pObj = $pObj;
 		}
