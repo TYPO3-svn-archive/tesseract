@@ -1,6 +1,7 @@
 2012-01-12 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
 	* Corrected description of tx_tesseract_datacontroller_output::getPrefixId(), resolves #33154
+	* Added API for message queue handling in the controller, resolves #9072
 
 2012-01-08 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 

@@ -33,15 +33,45 @@
  * $Id$
  */
 interface tx_tesseract_datacontroller_output {
-
 	/**
-	 * This method should return a string that somehow identifies
-	 * the controller. When the controller is a FE plugin - for example -
+	 * Returns a string that identifies the controller.
+	 *
+	 *  When the controller is a FE plugin - for example -
 	 * it should return the prefix that can be used to name GET/POST
 	 * variables in the form of "tx_mycontroller[foo]".
 	 *
 	 * @return	string	An ID string that identifies the controller
 	 */
 	public function getPrefixId();
+
+	/**
+	 * Adds a debugging message to the controller's internal message queue
+	 *
+	 * Implementations of this method should check whether debugging is active or not and avoid storing
+	 * messages if it is not.
+	 *
+	 * @param string $key A key identifying a set the message belongs to (typically the calling extension's key)
+	 * @param string $message Text of the message
+	 * @param string $title An optional title for the message
+	 * @param int $status A status/severity level for the message, based on the class constants from t3lib_FlashMessage
+	 * @param mixed $debugData An optional variable containing additional debugging information
+	 * @return void
+	 */
+	public function addMessage($key, $message, $title = '', $status = t3lib_FlashMessage::INFO, $debugData = NULL);
+
+	/**
+	 * Returns the complete message queue
+	 *
+	 * @return array The message queue
+	 */
+	public function getMessageQueue();
+
+	/**
+	 * Returns the message queue for a given key
+	 *
+	 * @param string $key The key to return the messages for
+	 * @return array The message queue for the given key
+	 */
+	public function getMessageQueueForKey($key);
 }
 ?>

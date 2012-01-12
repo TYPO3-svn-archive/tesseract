@@ -34,8 +34,8 @@ Upgrading to version 1.3.0	11
 Configuration	12
 Developer's Guide	13
 API	13
-Known problems	15
-To-Do List	16
+Known problems	16
+To-Do List	17
 
 Introduction
 Overview
@@ -384,12 +384,28 @@ The “other side” of the process is when the controller prepares for output. 
 Name
 Description
 getPrefixId()
-This method is expected to return a key uniquely identifying the controller. In the fronted this would typicall take the form of "tx_extensionname" to be used in prefixing GET/POST vars.
+This method is expected to return a key uniquely identifying the controller. In the fronted this would typically take the form of "tx_extensionname" to be used in prefixing GET/POST vars.
+addMessage
+Add a message to the debugging message queue.
+getMessageQueue
+Get all the messages in the debugging message queue.
+getMessageQueueForKey
+Get messages in the debugging message queue related to a specific key (normally a particular Tesseract component).
 
-This is used – for example – by extension “templatedisplay” while assembling links with query variables. The Display Controller extension returns “tx_displaycontroller” as a prefix, so “templatedisplay” will use the common TYPO3 syntax:
+tx_tesseract_datacontroller_output::getPrefixId() is used – for example – by extension “templatedisplay” while assembling links with query variables. The Display Controller extension returns “tx_displaycontroller” as a prefix, so “templatedisplay” will use the common TYPO3 syntax:
 tx_displaycontroller[foo]
 
 When creating a link with query variables. This ensure that the controller knows how to retrieve variables that are meaning for itself. In the case of the “displaycontroller”, all such properly constructed variables will be available in the well-know piVars array.
+Each controller is expected to manage an internal message queue for storing debugging messages. Any Tesseract component can add a message to that queue by referring to its controller instance. Example:
+$this->controller->addMessage(
+	'extensionkey_uid',
+	'This is the debug message',
+	'Title of the message (optional)',
+	t3lib_FlashMessage::OK,
+	array('foo', 'bar')
+);
+
+The controller should store such messages only if some debugging mode is active. It is then expected to also display or store these messages in some way to help debugging. The messages should by stored by key, the key helping identify which component sent the message (so the key will usually be the extension key of the component, plus the uid of the specific instance (or some other identifier, should the component not be related to a database record)). This could then be used by said component to retrieve its messages (using getMessageQueueForKey()), although this is not currently used and does not seem useful at the moment.
 Known problems
 None to date. If you have any issues, please refer to the Tesseract Project web site (http://www.typo3-tesseract.com/). You may also post your problems to the TYPO3 English mailing list (typo3.english), so that others may benefit from the answers too. For bugs or feature requests, please open an entry in the extension's bug tracker on Forge (http://forge.typo3.org/projects/extension-tesseract/issues).
 To-Do List
