@@ -65,13 +65,5 @@ interface tx_tesseract_datacontroller_output {
 	 * @return array The message queue
 	 */
 	public function getMessageQueue();
-
-	/**
-	 * Returns the message queue for a given key
-	 *
-	 * @param string $key The key to return the messages for
-	 * @return array The message queue for the given key
-	 */
-	public function getMessageQueueForKey($key);
 }
 ?>
