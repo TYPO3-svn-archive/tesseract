@@ -384,7 +384,7 @@ The “other side” of the process is when the controller prepares for output. 
 Name
 Description
 getPrefixId()
-This method takes whatever information is relevant to identify the controller and performs any appropriate action.
+This method is expected to return a key uniquely identifying the controller. In the fronted this would typicall take the form of "tx_extensionname" to be used in prefixing GET/POST vars.
 
 This is used – for example – by extension “templatedisplay” while assembling links with query variables. The Display Controller extension returns “tx_displaycontroller” as a prefix, so “templatedisplay” will use the common TYPO3 syntax:
 tx_displaycontroller[foo]
