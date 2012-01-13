@@ -16,6 +16,7 @@ return array(
 	'tx_tesseract_feconsumerbase'			=> $extensionPath . 'services/class.tx_tesseract_feconsumerbase.php',
 	'tx_tesseract_filterbase'				=> $extensionPath . 'services/class.tx_tesseract_filterbase.php',
 	'tx_tesseract_providerbase'				=> $extensionPath . 'services/class.tx_tesseract_providerbase.php',
+	'tx_tesseract_picontrollerbase'			=> $extensionPath . 'base/class.tx_tesseract_picontrollerbase.php',
 	'tx_tesseract_exception'				=> $extensionPath . 'lib/class.tx_tesseract_exception.php',
 	'tx_tesseract_utilities'				=> $extensionPath . 'lib/class.tx_tesseract_utilities.php',
 	'tx_tesseract'							=> $extensionPath . 'class.tx_tesseract.php',

@@ -65,5 +65,20 @@ interface tx_tesseract_datacontroller_output {
 	 * @return array The message queue
 	 */
 	public function getMessageQueue();
+
+	/**
+	 * Sets the debug flag
+	 *
+	 * @param boolean $flag TRUE to active debugging mode
+	 * @return void
+	 */
+	public function setDebug($flag);
+
+	/**
+	 * Returns the debug flag
+	 *
+	 * @return bool
+	 */
+	public function getDebug() ;
 }
 ?>
