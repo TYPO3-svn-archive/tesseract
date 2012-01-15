@@ -34,8 +34,8 @@ Upgrading to version 1.3.0	11
 Configuration	13
 Developer's Guide	14
 API	14
-Known problems	17
-To-Do List	18
+Known problems	18
+To-Do List	19
 
 Introduction
 Overview
@@ -313,6 +313,10 @@ setData()
 This method can be used to (forcefully) set the information related to the Tesseract component. This is usually achieved via loadData(), but is sometimes useful. In particular it is used in the context of unit testing.
 getData()
 This method returns the information related to the Tesseract component.
+setController()
+This method is used to pass to the component a reference to its controller.
+getController()
+This method returns a reference to the component's controller.
 Data Provider
 The DataProvider interface defines the methods that a data source must implement in order to be recognized as a Data Provider. These methods are:
 Name
