@@ -1,3 +1,7 @@
+2012-01-19 Francois Suter (Cobweb)  <typo3@cobweb.ch>
+
+	* Added documentation about new negate flag for filter conditions, resolves #33322
+
 2012-01-12 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
 	* Corrected description of tx_tesseract_datacontroller_output::getPrefixId(), resolves #33154
