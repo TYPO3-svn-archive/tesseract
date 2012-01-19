@@ -80,9 +80,7 @@ abstract class tx_tesseract_component extends t3lib_svbase {
 	 * @return void
 	 */
 	public function setController(tx_tesseract_datacontroller_output $controller) {
-		if (is_object($controller)) {
-			$this->controller = $controller;
-		}
+		$this->controller = $controller;
 	}
 
 	/**
