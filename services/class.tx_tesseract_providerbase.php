@@ -110,20 +110,6 @@ abstract class tx_tesseract_providerbase extends tx_tesseract_component implemen
 	}
 
 	/**
-	 * This method prepares an empty data structure
-	 * i.e. with most properties undefined, an empty array for "records" and a "count" of 0
-	 * If appropriate it should also set some flag, so that getDataStructure() knows that it must return this empty structure
-	 * rather than calculate the full structure
-	 *
-     * @param string $tablename Name of the main table (a structure should always have a table defined)
-	 * @return void
-	 */
-	public function initEmptyDataStructure($tablename) {
-		$this->hasEmptyOutputStructure = TRUE;
-		$this->outputStructure = array('count' => 0, 'records' => array(), 'name' => $tablename, 'uidList' => FALSE, 'header' => FALSE, 'totalCount' => 0);
-	}
-
-	/**
 	 * This method is used to pass a Data Filter structure to the Data Provider
 	 *
 	 * @param	array		$filter: Data Filter structure
@@ -189,6 +175,26 @@ abstract class tx_tesseract_providerbase extends tx_tesseract_component implemen
 		$this->structure = array();
 		$this->hasEmptyOutputStructure = FALSE;
 		$this->outputStructure = array();
+	}
+
+// Other methods
+
+	/**
+	 * This method prepares an empty data structure
+	 * i.e. with most properties undefined, an empty array for "records" and a "count" of 0
+	 *
+     * @param string $tablename Name of the main table (a structure should always have a table defined)
+	 * @return void
+	 */
+	protected function initEmptyDataStructure($tablename) {
+		$this->outputStructure = array(
+			'count' => 0,
+			'records' => array(),
+			'name' => $tablename,
+			'uidList' => FALSE,
+			'header' => FALSE,
+			'totalCount' => 0
+		);
 	}
 }
 
