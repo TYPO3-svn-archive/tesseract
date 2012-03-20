@@ -1,6 +1,7 @@
 2012-03-20 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
 	* Moved initEmptyDataStrucure() method to data provider base class instead of interface, resolves #35048
+	* Corrected creation of empty data structure to take structure type into account, resolves #35051
 
 2012-02-06 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 

@@ -184,17 +184,26 @@ abstract class tx_tesseract_providerbase extends tx_tesseract_component implemen
 	 * i.e. with most properties undefined, an empty array for "records" and a "count" of 0
 	 *
      * @param string $tablename Name of the main table (a structure should always have a table defined)
+	 * @param string $type Type of datastructure
 	 * @return void
 	 */
-	protected function initEmptyDataStructure($tablename) {
+	protected function initEmptyDataStructure($tablename, $type = tx_tesseract::RECORDSET_STRUCTURE_TYPE) {
+			// Set up base structure
 		$this->outputStructure = array(
 			'count' => 0,
-			'records' => array(),
-			'name' => $tablename,
+			'totalCount' => 0,
 			'uidList' => FALSE,
-			'header' => FALSE,
-			'totalCount' => 0
+			'filter' => array(),
 		);
+			// Initialize more data dependent of structure type
+		if ($type == tx_tesseract::RECORDSET_STRUCTURE_TYPE) {
+			$this->outputStructure['records'] = array();
+			$this->outputStructure['name'] = $tablename;
+			$this->outputStructure['header'] = FALSE;
+		} elseif($type == tx_tesseract::IDLIST_STRUCTURE_TYPE) {
+			$this->outputStructure['uniqueTable'] = $tablename;
+			$this->outputStructure['uidListWithTable'] = '';
+		}
 	}
 }
 
