@@ -2,7 +2,7 @@
 /***************************************************************
 *  Copyright notice
 *
-*  (c) 2008 Francois Suter (Cobweb) <typo3@cobweb.ch>
+*  (c) 2008-2012 Francois Suter (Cobweb) <typo3@cobweb.ch>
 *  All rights reserved
 *
 *  This script is part of the TYPO3 project. The TYPO3 project is
@@ -33,28 +33,6 @@
  * $Id$
  */
 class tx_tesseract_utilities {
-
-	/**
-	 * This method wraps messages before display
-	 *
-	 * @param	string	$message: message to wrap
-     * @param	string	$type: type of message (use either "error", "warning" or "success")
-     *
-	 * @return	string	Wrapped message
-	 */
-	public static function wrapMessage($message, $type = 'error') {
-		switch ($type) {
-			case 'success':
-				$style = 'background-color: #0f0; color: #000; padding:4px;';
-				break;
-			case 'warning':
-				$style = 'background-color: #f60; color: #000; padding:4px;';
-				break;
-			default:
-				$style = 'background-color: #f00; color: #fff; padding:4px;';
-        }
-		return '<div style="' . $style . '">' . $message . '</div>';
-	}
 
 	/**
 	 * This method can be used to calculate a hash based on the values of a given filter
