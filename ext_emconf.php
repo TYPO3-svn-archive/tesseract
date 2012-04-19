@@ -3,7 +3,7 @@
 ########################################################################
 # Extension Manager/Repository config file for ext "tesseract".
 #
-# Auto generated 06-02-2012 09:05
+# Auto generated 19-04-2012 14:39
 #
 # Manual updates:
 # Only the data in the array - everything else is removed by next
@@ -29,7 +29,7 @@ $EM_CONF[$_EXTKEY] = array(
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
 	'author_company' => '',
-	'version' => '1.3.0',
+	'version' => '1.4.0',
 	'constraints' => array(
 		'depends' => array(
 			'php' => '5.2.0-0.0.0',
@@ -41,7 +41,7 @@ $EM_CONF[$_EXTKEY] = array(
 		'suggests' => array(
 		),
 	),
-	'_md5_values_when_last_written' => 'a:27:{s:9:"ChangeLog";s:4:"cef1";s:10:"README.txt";s:4:"a21e";s:22:"class.tx_tesseract.php";s:4:"07c5";s:35:"class.tx_tesseract_emconfhelper.php";s:4:"6b05";s:16:"ext_autoload.php";s:4:"5b7d";s:21:"ext_conf_template.txt";s:4:"464c";s:12:"ext_icon.gif";s:4:"37ae";s:17:"ext_localconf.php";s:4:"6394";s:14:"ext_tables.php";s:4:"f8c0";s:13:"locallang.xml";s:4:"554c";s:44:"base/class.tx_tesseract_picontrollerbase.php";s:4:"975c";s:14:"doc/manual.pdf";s:4:"3a65";s:14:"doc/manual.sxw";s:4:"4a6a";s:14:"doc/manual.txt";s:4:"5306";s:50:"interfaces/interface.tx_tesseract_dataconsumer.php";s:4:"4125";s:52:"interfaces/interface.tx_tesseract_datacontroller.php";s:4:"deea";s:59:"interfaces/interface.tx_tesseract_datacontroller_output.php";s:4:"2898";s:48:"interfaces/interface.tx_tesseract_datafilter.php";s:4:"b808";s:50:"interfaces/interface.tx_tesseract_dataprovider.php";s:4:"4069";s:36:"lib/class.tx_tesseract_exception.php";s:4:"5ec0";s:36:"lib/class.tx_tesseract_utilities.php";s:4:"0929";s:41:"services/class.tx_tesseract_component.php";s:4:"03d5";s:44:"services/class.tx_tesseract_consumerbase.php";s:4:"7272";s:46:"services/class.tx_tesseract_controllerbase.php";s:4:"ed24";s:46:"services/class.tx_tesseract_feconsumerbase.php";s:4:"d948";s:42:"services/class.tx_tesseract_filterbase.php";s:4:"81c9";s:44:"services/class.tx_tesseract_providerbase.php";s:4:"0a6a";}',
+	'_md5_values_when_last_written' => 'a:27:{s:9:"ChangeLog";s:4:"0af4";s:10:"README.txt";s:4:"a21e";s:22:"class.tx_tesseract.php";s:4:"07c5";s:35:"class.tx_tesseract_emconfhelper.php";s:4:"1449";s:16:"ext_autoload.php";s:4:"5b7d";s:21:"ext_conf_template.txt";s:4:"464c";s:12:"ext_icon.gif";s:4:"37ae";s:17:"ext_localconf.php";s:4:"6394";s:14:"ext_tables.php";s:4:"f8c0";s:13:"locallang.xml";s:4:"554c";s:44:"base/class.tx_tesseract_picontrollerbase.php";s:4:"975c";s:14:"doc/manual.pdf";s:4:"fca4";s:14:"doc/manual.sxw";s:4:"9293";s:14:"doc/manual.txt";s:4:"84fc";s:50:"interfaces/interface.tx_tesseract_dataconsumer.php";s:4:"4125";s:52:"interfaces/interface.tx_tesseract_datacontroller.php";s:4:"deea";s:59:"interfaces/interface.tx_tesseract_datacontroller_output.php";s:4:"2898";s:48:"interfaces/interface.tx_tesseract_datafilter.php";s:4:"b808";s:50:"interfaces/interface.tx_tesseract_dataprovider.php";s:4:"4ff3";s:36:"lib/class.tx_tesseract_exception.php";s:4:"5ec0";s:36:"lib/class.tx_tesseract_utilities.php";s:4:"e286";s:41:"services/class.tx_tesseract_component.php";s:4:"03d5";s:44:"services/class.tx_tesseract_consumerbase.php";s:4:"7272";s:46:"services/class.tx_tesseract_controllerbase.php";s:4:"ed24";s:46:"services/class.tx_tesseract_feconsumerbase.php";s:4:"d948";s:42:"services/class.tx_tesseract_filterbase.php";s:4:"81c9";s:44:"services/class.tx_tesseract_providerbase.php";s:4:"a19a";}',
 	'suggests' => array(
 	),
 );
