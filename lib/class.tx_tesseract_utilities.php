@@ -39,6 +39,7 @@ class tx_tesseract_utilities {
 	 *
 	 * @param array $filter Standard filter structure
 	 * @param boolean $useLimit By default, the "limit" part of the filter is excluded from the hash. Use this flag to include it
+	 * @throws Exception
 	 * @return string The calculated hash
 	 */
 	public static function calculateFilterCacheHash($filter, $useLimit = FALSE) {

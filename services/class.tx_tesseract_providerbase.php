@@ -45,11 +45,13 @@ abstract class tx_tesseract_providerbase extends tx_tesseract_component implemen
 // (implement only methods that make sense here)
 
 	/**
-	 * This method is used to load the details about the Data Provider passing it whatever data it needs
+	 * Loads the details about the Data Provider passing it whatever data it needs
+	 *
 	 * This will generally be a table name (stored in $data['tablenames']) and a primary key value (stored in $data['uid_foreign'])
 	 *
-	 * @param	array	$data: Data for the Data Provider
-	 * @return	void
+	 * @param array $data Data for the Data Provider
+	 * @throws Exception
+	 * @return void
 	 */
 	public function loadData($data) {
 		$this->table = $data['table'];

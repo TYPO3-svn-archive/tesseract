@@ -62,11 +62,13 @@ abstract class tx_tesseract_filterbase extends tx_tesseract_component implements
 // (implement only methods that make sense here)
 
 	/**
-	 * This method is used to load the details about the Data Filter passing it whatever data it needs
+	 * Loads the details about the Data Filter passing it whatever data it needs
+	 *
 	 * This will generally be a table name (stored in $data['table']) and a primary key value (stored in $data['uid'])
 	 *
-	 * @param	array	$data: Data for the Data Filter
-	 * @return	void
+	 * @param array $data Data for the Data Filter
+	 * @throws Exception
+	 * @return void
 	 */
 	public function loadData($data) {
 		$this->table = $data['table'];

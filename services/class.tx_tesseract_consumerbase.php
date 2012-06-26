@@ -47,11 +47,13 @@ abstract class tx_tesseract_consumerbase extends tx_tesseract_component implemen
 	protected $pObj;
 
 	/**
-	 * This method is used to load the details about the Data Consumer passing it whatever data it needs
+	 * Loads the details about the Data Consumer passing it whatever data it needs
+	 *
 	 * This will generally be a table name and a primary key value
 	 *
-	 * @param	array	$data: Data for the Data Consumer
-	 * @return	void
+	 * @param array $data Data for the Data Consumer
+	 * @throws Exception
+	 * @return void
 	 */
 	public function loadData($data) {
 		$this->table = $data['table'];
