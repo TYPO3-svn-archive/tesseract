@@ -48,16 +48,25 @@ class tx_tesseract {
 	 * @param string $subtype Specific subtype of component
 	 * @param array $componentData Data for the component
 	 * @param tx_tesseract_datacontroller_output $controller Reference to the calling controller
+	 * @throws tx_tesseract_exception
 	 * @return tx_tesseract_component
 	 */
 	public static function getComponent($type, $subtype, $componentData, $controller) {
 			// Get the correct service instance
 			/** @var $component tx_tesseract_component */
 		$component = t3lib_div::makeInstanceService($type, $subtype);
-			// Load the component's data
-		$component->loadData($componentData);
-			// Set the reference to the controller
-		$component->setController($controller);
+			// Check if a service was found and returned an appropriate type
+		if (!($component instanceof tx_tesseract_component)) {
+			throw new tx_tesseract_exception(
+				'No service found for type: '. $type .', subtype: ' . $subtype,
+				1341692083
+			);
+		} else {
+				// Load the component's data
+			$component->loadData($componentData);
+				// Set the reference to the controller
+			$component->setController($controller);
+		}
 		return $component;
 	}
 }
