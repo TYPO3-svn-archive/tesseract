@@ -33,24 +33,34 @@
  * $Id$
  */
 abstract class tx_tesseract_filterbase extends tx_tesseract_component implements tx_tesseract_datafilter {
-		/**
-		 * Name of the table where the details about the data query are stored
-		 *
-		 * @var	string
-		 */
+	/**
+	 * Allowed values for ordering engines
+	 *
+	 * @var array
+	 */
+	protected static $allowedOrderingEngines = array('source', 'provider');
+
+	/**
+	 * Name of the table where the details about the data query are stored
+	 *
+	 * @var	string
+	 */
 	protected $table;
-		/**
-		 * Primary key of the record to fetch for the details
-		 *
-		 * @var	integer
-		 */
+
+	/**
+	 * Primary key of the record to fetch for the details
+	 *
+	 * @var	integer
+	 */
 	protected $uid;
-		/**
-		 * Record from the database about the Data Filter
-		 *
-		 * @var	array
-		 */
+
+	/**
+	 * Record from the database about the Data Filter
+	 *
+	 * @var	array
+	 */
 	protected $filterData = array();
+
 		/**
 		 * Will contain the complete filter structure
 		 *

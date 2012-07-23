@@ -214,13 +214,21 @@ Name of the table to sort
 field
 Name of the field to sort on
 order
-Direction of the ordering (asc/desc)
+Direction of the ordering (typically asc or desc)
+engine
+Where the ordering should take place, leave blank for delegating decision to the Data Provider.
+
+Possible values are:
+
+source: the ordering should be applied during the request to the data source used by the provider (e.g. the ORDER BY statement for a SQL-based provider).
+provider: the ordering should be performed by the Data Provider itself, after it has retrieved the data from the source. This is important in particular when querying the TYPO3 database with its translation overlays. In such a case it is often necessary to sort after the overlays have been applied. A Data Provider such as "Data Query" tries to be smart and guess this. It will automatically sort text fields provider-side and number or date fields source-side. The "engine" property is then useful to change this behavior.
 
 1
 ...
 
 
 Custom properties may be added by extensions (e.g. the Data Query extension adds a “raw SQL” field).
+
 Special values
 A number of special values exist for the values found in conditions. Any implementation of the Data Filter pattern should be able to handle those values, if relevant. Special values begin with a backslash (\). They are expected to be handled correctly by the Data Filter (if needed) and to be interpreted by the Data Provider. The table below lists the base special values that should be recognized and how they should be handled by the Data Provider:
 Name
