@@ -1,3 +1,7 @@
+2012-07-30 Francois Suter (Cobweb)  <typo3@cobweb.ch>
+
+	* Released to TER as version 1.6.0
+
 2012-07-23 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
 	* Added new "engine" property to Data Filter structure and base class, resolves #39190
