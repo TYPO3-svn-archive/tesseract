@@ -3,7 +3,7 @@ EXT: Project Tesseract
 Extension Key: tesseract
 Language: en
 Keywords: forAdmins, forIntermediates
-Copyright 2008-2012, The Tesseract Team, <typo3@cobweb.ch>
+Copyright 2008-2013, The Tesseract Team, <typo3@cobweb.ch>
 
 This document is published under the Open Content License
 available from http://www.opencontent.org/opl.shtml
@@ -48,7 +48,7 @@ A tesseract is a 4-dimensional cube. The project was named after this structure 
 Questions?
 If you have any questions about this extension, you may want to refer to the Tesseract Project web site (http://www.typo3-tesseract.com/) for support and tutorials. You may also ask questions in the TYPO3 English mailing list (typo3.english).
 Keeping the developers happy
-If you like this extension, do not hesitate to rate it. Go the Extension Repository, search for this extension, click on its title to go to the details view, then click on the “Ratings” tab and vote (you need to be logged in). Every new vote keeps the developers ticking. So just do it!
+If you like this extension, do not hesitate to make noise about it by using the social bookmarks available in the extension's detailed view on typo3.org.
 You may also take a step back and reflect about the beauty of sharing. Think about how much you are benefiting and how much yourself is giving back to the community.
 Fundamentals
 Displaying list of things (news items, flats, cars, movies, etc.) is a very common task in any web site. It is generally expected that such lists can be filtered and sorted. Each item should link to a detail view with cross-linking to related items (like actors to a movie, for example).
@@ -420,6 +420,14 @@ setDebug
 Set the debug flag of the controller (boolean value)
 getDebug
 Get the current value of the controller's debug flag
+getControllerData
+Get all the data related to the controller (in the case of "displaycontroller", for example, this will be the corresponding tt_content record). Available since "tesseract" version 1.7.0.
+getControllerDataValue
+Get a specific value from the controller data, as specified by the parameter passed. Available since "tesseract" version 1.7.0.
+getControllerArguments
+Get all the arguments related to the controller (in the case of "displaycontroller", for example, this will be the plugin's piVars). Available since "tesseract" version 1.7.0.
+getControllerArgumentValue
+Get a specific value from the controller arguments, as specified by the parameter passed. Available since "tesseract" version 1.7.0.
 
 tx_tesseract_datacontroller_output::getPrefixId() is used – for example – by extension “templatedisplay” while assembling links with query variables. The Display Controller extension returns “tx_displaycontroller” as a prefix, so “templatedisplay” will use the common TYPO3 syntax:
 tx_displaycontroller[foo]
