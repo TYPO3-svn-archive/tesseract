@@ -46,10 +46,11 @@ class tx_tesseract_emconfhelper {
 	 * Returns a list with the status of all "core" Tesseract extensions
 	 *
 	 * @param array	 $params Information about the field to be rendered
-	 * @param t3lib_tsStyleConfig $pObj The calling parent object.
+	 * @param object $pObj The calling parent object.
 	 * @return string The HTML selector
 	 */
-	public function installationCheck(array $params, t3lib_tsStyleConfig $pObj) {
+	public function installationCheck(array $params, $pObj) {
+		// TODO: When switching to strictly 6.x, declare $pObj as \TYPO3\CMS\Core\TypoScript\ConfigurationForm
 		$checkText = '<p style="margin-bottom: 10px;"><strong>' . $GLOBALS['LANG']->getLL('installationCheck.warning') . '</strong></p>';
 		foreach (self::$extensionsList as $anExtension) {
 			$checkText .= $this->wrapMessage($anExtension, t3lib_extMgm::isLoaded($anExtension));

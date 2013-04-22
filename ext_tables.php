@@ -10,7 +10,7 @@ if (!defined ('TYPO3_MODE')) {
 	// such as mapping database fields to placeholders can take place
 	// This is necessary because - in such cases - the process is not initiated
 	// by a controller
-if (!isset($T3_VAR['EXT']['tesseract']['controller_mm_tables'])) {
-	$T3_VAR['EXT']['tesseract']['controller_mm_tables'] = array();
+if (!isset($GLOBALS['T3_VAR']['EXT']['tesseract']['controller_mm_tables'])) {
+	$GLOBALS['T3_VAR']['EXT']['tesseract']['controller_mm_tables'] = array();
 }
 ?>
