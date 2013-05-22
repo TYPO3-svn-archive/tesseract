@@ -78,6 +78,57 @@ class tx_tesseract_utilities {
 	}
 
 	/**
+	 * Returns the full path to a file given either by a relative path or a FAL reference
+	 *
+	 * @param string $filePath A (relative) path to a file or a FAL reference (e.g. "file:123")
+	 * @return string Full path to the file
+	 * @throws tx_tesseract_exception
+	 */
+	public static function getTemplateFilePath($filePath) {
+		// There could be link parameters. Explode the string to get rid of them.
+		$fileParts = explode(' ', $filePath);
+		// If TYPO3 version is 6 or more and string starts with "file:", try to resolve FAL reference
+		// TODO: when we drop compatibility with older TYPO3 versions, remove v6 check
+		if (strpos(TYPO3_version, '6') === 0 && strpos($fileParts[0], 'file:') === 0) {
+			// Extract the file id
+			$fileUid = intval(substr($fileParts[0], 5));
+			// If valid, try to get the corresponding file object
+			if ($fileUid > 0) {
+				try {
+					$fileObject = \TYPO3\CMS\Core\Resource\ResourceFactory::getInstance()->getFileObject($fileUid);
+					// A valid reference was returned, get the file's relative path
+					if ($fileObject instanceof \TYPO3\CMS\Core\Resource\FileInterface) {
+						$relativePath = $fileObject->getPublicUrl();
+
+					// No valid reference
+					} else {
+						throw new tx_tesseract_exception('No template file found for reference: ' . $filePath, 1295025186);
+					}
+				}
+				catch (Exception $e) {
+					// File reference could not be resolved
+					throw new tx_tesseract_exception('No template file found for reference: ' . $filePath, 1295025186);
+				}
+
+			// Invalid file id
+			} else {
+				throw new tx_tesseract_exception('No template file found for reference: ' . $filePath, 1295025186);
+			}
+
+		// If not using a FAL reference syntax, assume it is already a relative path
+		} else {
+			$relativePath = $fileParts[0];
+		}
+		// Make path absolute
+		$fullPath = t3lib_div::getFileAbsFileName($relativePath);
+		// Verify that file really exists
+		if (!is_file($fullPath)) {
+			throw new tx_tesseract_exception('No template file found for reference: ' . $fullPath, 1295025186);
+		}
+		return $fullPath;
+	}
+
+	/**
 	 * Returns a language object by trying to find an existing one or instantiating a new one properly
 	 * depending on context
 	 *
