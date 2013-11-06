@@ -22,8 +22,6 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-require_once(PATH_tslib . 'class.tslib_pibase.php');
-
 /**
  * Base controller class for controllers based on pi_base
  *

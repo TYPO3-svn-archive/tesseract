@@ -1,3 +1,7 @@
+2013-11-06 Francois Suter (Cobweb)  <typo3@cobweb.ch>
+
+	* Removed old require_once() calls, resolves #53386
+
 2013-06-21 Francois Suter (Cobweb)  <typo3@cobweb.ch>
 
 	* Released to TER as version 1.7.0
